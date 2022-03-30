@@ -2,7 +2,7 @@ import axios from "axios";
 
 const url = "https://mock-api.bootcamp.respondeai.com.br/api/v2/trackit";
 
-function createConfig(token) {
+function config(token) {
     return { headers:
          { Authorization: `Bearer ${token}` } };
   }
@@ -56,7 +56,7 @@ function getHabitsHistory (){
 
 
 const api = {
-  createConfig,
+  config,
   gettingRegistered,
   login,
   creatingHabits,
