@@ -1,10 +1,10 @@
 import { BrowserRouter, Routes, Route } from "react-router-dom";
-import Header from "./components/Header";
 import Login from "./components/Login";
 import Register from "./components/Register";
 import Habits from "./components/Habits";
 import Today from "./components/Today";
 import History from "./components/History";
+
 
 
 
