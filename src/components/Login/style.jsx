@@ -21,8 +21,12 @@ const Container = styled.div`
   flex-direction: column;
   background-color: #FFFFFF;
 `;
+const Form = styled.div`
+
+`
 
 export{
     LinkStyle,
-    Container
+    Container,
+    Form
 }

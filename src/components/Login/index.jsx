@@ -1,40 +1,72 @@
+import React from "react";
+import { useNavigate } from "react-router-dom";
 import Input from "../Input";
 import Button from "../Button";
 import { Container, LinkStyle } from "./style";
-import "react-loader-spinner/dist/loader/css/react-spinner-loader.css";
-import Loader from 'react-loader-spinner';
+import {ThreeDots} from 'react-loader-spinner';
 import Logo from "../../assets/logo.svg";
-import api from "../Axios"
+import {login} from "../Axios"
 import useState from "react";
 
 
-
 export default function Login (){
-    const [email,setEmail]= useState("");
-    const [password,setPassword]= useState("");
+    const [formData, setFormData] = useState({ email: '', password: '' })
+    const [loading,setLoading]= useState("false")
+    const navigate = useNavigate();
+   
 
-    api.login
-    
-    return(
-        <>
+  function handleChange(e) {
+    setFormData({ ...formData, [e.target.name]: e.target.value });
+  }
+
+  function handleSubmit(e) {
+    e.preventDefault();
+
+    setLoading(true);
+    const promise = login({ ...formData });
+    promise.then((response) => {
+      setLoading(false);
+
+      login(response.data);
+      navigate("/today");
+    });
+    promise.catch(() => {
+      setLoading(false);
+
+      alert('Erro! Confira seus dados preenchidos.');
+    });
+  }
+
+  return (
         <Container>
+          <form onSubmit={handleSubmit}>
             <img src={Logo} alt="Logo"/>
             <Input
              type = "text"
              placeholder = "email"
-             onChange={(e) => setEmail(e.target.value)}
-             value={email}/>
+             onChange={handleChange}
+             disabled={loading}
+             value={formData.email}/>
             <Input
              type = "text"
              placeholder = "senha"
-             onChange={(e) => setPassword(e.target.value)}
-             value={password}/>
-            <Button type="submit">
-                {<Loader type="ThreeDots" color="#FFFFFF" height={50} width={50} />} Entrar
+             onChange={handleChange}
+             disabled={loading}
+             value={formData.password}/>
+            <Button 
+            type="submit"
+            disabled={loading}>
+                {
+                    loading
+                    ?<ThreeDots color="#FFFFFF" height="11" width="43" /> 
+                    :"Entrar"}
              </Button>
-            <LinkStyle to="/cadastro">Não tem uma conta? Cadastre-se! </LinkStyle>
+             </form>
+            <LinkStyle to="/cadastro">
+                Não tem uma conta? Cadastre-se!
+            </LinkStyle>
         </Container>
-        </>
+        
     );
 
 }
