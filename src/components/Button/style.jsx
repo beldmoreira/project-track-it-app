@@ -12,6 +12,7 @@ font-weight: 400;
 line-height: 26px;
 letter-spacing: 0em;
 text-align: center;
+cursor:pointer;
 `;
 
 export{

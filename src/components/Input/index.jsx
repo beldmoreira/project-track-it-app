@@ -1,4 +1,4 @@
-import InputStyle from "./style";
+import {InputStyle} from "./style";
 
 
 export default function Input(){
