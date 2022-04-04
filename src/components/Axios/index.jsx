@@ -19,43 +19,43 @@ function login (body){
 }
 
 function creatingHabits (body,token){
-  const config = createConfig(token);
+  const config = config(token);
   const promise = axios.post(`${url}/habits`,body,config);
   return promise;
 }
 
 function listingHabits (token){
-  const config = createConfig(token);
+  const config = config(token);
   const promise = axios.get(`${url}/habits`,config);
   return promise;
 }
 
 function deletingHabits (id,token){
-  const config = createConfig(token);
+  const config = config(token);
   const promise = axios.delete(`${url}/habits/${id}`,config);
   return promise;
 }
 
 function searchingTodayHabits (token){
-  const config = createConfig(token);
+  const config = config(token);
   const promise = axios.get(`${url}/habits/today`,config);
   return promise;
 }
 
 function checkingHabitsDone (id,token){
-  const config = createConfig(token);
+  const config = config(token);
   const promise = axios.post(`${url}/habits/${id}/check`,config);
   return promise;
 }
 
 function uncheckingHabits (id,token){
-  const config = createConfig(token);
+  const config = config(token);
   const promise = axios.post(`${url}/habits/${id}/uncheck`,config);
   return promise;
 }
 
 function getHabitsHistory (token){
-  const config = createConfig(token);
+  const config = config(token);
   const promise = axios.get(`${url}/habits/history/daily`,config);
   return promise;
 }
