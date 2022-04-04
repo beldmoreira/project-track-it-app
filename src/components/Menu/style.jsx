@@ -1,24 +1,26 @@
 import styled from "styled-components";
+import { Link } from "react-router-dom";
 
-const MenuBar= styled.div`
-height: 70px;
-width: 100%;
-top: 597px;
-background-color:#FFFFFF;
-position:fixed;
-color: #52B6FF;
-font-size: 18px;
-font-style: normal;
-font-weight: 400;
-line-height: 22px;
-letter-spacing: 0em;
-text-align: center;
-display:flex;
-justify-content:space-between;
-align-items: center;
-flex-direction: column;
+const MenuCircle= styled.div`
+    width: 100%;
+    position:fixed;
+    color: #52B6FF;
+    display:flex;
+    align-items: center;
+    flex-direction: column;
+    justify-content: center;  
+`;
+
+const LinkStyle = styled(Link)`
+    font-size: 18px;
+    font-style: normal;
+    font-weight: 400;
+    line-height: 22px;
+    letter-spacing: 0em;
+    margin: 0 36px;
 `;
 
 export{
-    MenuBar
+    MenuCircle,
+    LinkStyle
 }
