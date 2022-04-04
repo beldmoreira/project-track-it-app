@@ -41,7 +41,7 @@ export default function Register(){
     return(
         <>
         <Container>
-        <Logo/>
+            <Logo/>
             <form onSubmit={handleSubmit}>
                 <Input
                 type= "text"
@@ -83,7 +83,7 @@ export default function Register(){
                 <LinkStyle to="/" >
                 Já tem uma conta? Faça login!
                 </LinkStyle>
-            </Container>
+        </Container>
         </>
     );
 }
