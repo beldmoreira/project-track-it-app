@@ -7,55 +7,60 @@ function config(token) {
          { Authorization: `Bearer ${token}` } };
   }
 
-function gettingRegistered (){
-  const promise = axios.post(`${url}/auth/sign-up`);
+function gettingRegistered (body){
+  const promise = axios.post(`${url}/auth/sign-up`,body);
   return promise;
 
 }
 
-function login (){
-  const promise = axios.post(`${url}/auth/login`);
+function login (body){
+  const promise = axios.post(`${url}/auth/login`,body);
   return promise;
 }
 
-function creatingHabits (){
-  const promise = axios.post(`${url}/habits`);
+function creatingHabits (body,token){
+  const config = createConfig(token);
+  const promise = axios.post(`${url}/habits`,body,config);
   return promise;
 }
 
-function listingHabits (){
-  const promise = axios.get(`${url}/habits`);
+function listingHabits (token){
+  const config = createConfig(token);
+  const promise = axios.get(`${url}/habits`,config);
   return promise;
 }
 
-function deletingHabits (id){
-  const promise = axios.delete(`${url}/habits/${id}`);
+function deletingHabits (id,token){
+  const config = createConfig(token);
+  const promise = axios.delete(`${url}/habits/${id}`,config);
   return promise;
 }
 
-function searchingTodayHabits (){
-  const promise = axios.get(`${url}/habits/today`);
+function searchingTodayHabits (token){
+  const config = createConfig(token);
+  const promise = axios.get(`${url}/habits/today`,config);
   return promise;
 }
 
-function checkingHabitsDone (id){
-  const promise = axios.post(`${url}/habits/${id}/check`);
+function checkingHabitsDone (id,token){
+  const config = createConfig(token);
+  const promise = axios.post(`${url}/habits/${id}/check`,config);
   return promise;
 }
 
-function uncheckingHabits (id){
-  const promise = axios.post(`${url}/habits/${id}/uncheck`);
+function uncheckingHabits (id,token){
+  const config = createConfig(token);
+  const promise = axios.post(`${url}/habits/${id}/uncheck`,config);
   return promise;
 }
 
-function getHabitsHistory (){
-  const promise = axios.get(`${url}/habits/history/daily`);
+function getHabitsHistory (token){
+  const config = createConfig(token);
+  const promise = axios.get(`${url}/habits/history/daily`,config);
   return promise;
 }
 
-
-
-const api = {
+const api ={
   config,
   gettingRegistered,
   login,
@@ -68,7 +73,6 @@ const api = {
   getHabitsHistory
 
 }
-
 export default api;
 
 
