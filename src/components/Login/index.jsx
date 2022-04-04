@@ -2,7 +2,10 @@ import React from "react";
 import { useNavigate } from "react-router-dom";
 import Input from "../Input";
 import Button from "../Button";
-import { Container, LinkStyle } from "./style";
+import {
+   Container,
+   LinkStyle
+   } from "./style";
 import {ThreeDots} from 'react-loader-spinner';
 import Logo from "../../assets/logo.svg";
 import {login} from "../Axios"
