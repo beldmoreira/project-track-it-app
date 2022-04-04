@@ -6,7 +6,7 @@ import { Container, LinkStyle } from "./style";
 import { useNavigate } from "react-router-dom";
 import useState from "react";
 import { ThreeDots } from "react-loader-spinner";
-import { gettingRegistered } from "../Axios";
+import api from "../Axios";
 
 
 export default function Register(){
@@ -23,7 +23,7 @@ export default function Register(){
         e.preventDefault();
 
         setLoading(true);
-        const promise = gettingRegistered({
+        const promise = api.gettingRegistered({
             ...formData
           });
         

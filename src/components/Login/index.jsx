@@ -8,7 +8,7 @@ import {
    } from "./style";
 import {ThreeDots} from 'react-loader-spinner';
 import Logo from "../../assets/logo.svg";
-import {login} from "../Axios"
+import api from "../Axios"
 import useState from "react";
 
 
@@ -26,7 +26,7 @@ export default function Login (){
     e.preventDefault();
 
     setLoading(true);
-    const promise = login({ ...formData });
+    const promise = api.login({ ...formData });
     promise.then((response) => {
       setLoading(false);
 
